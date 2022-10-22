@@ -1,23 +1,20 @@
-print ('\nLatihan Konversi Temperatur\n')
+# Date And Time (latihan)
 
-celcius = float(input('Masukan Suhu Dalam Celsius = '))
-print ('Suhu adalah ',celcius,'Celcius')
+import datetime as dt
+from re import A
 
-# Reamur
-reamur = (4 / 5) * celcius
-print("\nSuhu Dalam Reamur Adalah ", reamur)
+print("\nMasukan Tanggal, \nBulan, dan tahun lahir Anda\n")
+tanggal = int(input("Tanggal Lahir Anda \t:"))
+bulan   = int(input("Bulan Lahir Anda \t:"))
+tahun   = int(input("Tahun Lahir Anda \t:"))
 
-# Fahrenheit
-fahrenheit = ((9/5) * celcius) + 32
-fahrenheitKelvin = (5 / 9 * (fahrenheit - 32) ) + 273.15
-print("\nSuhu Dalam fahrenheit Adalah ", fahrenheit)
-print("Suhu Dari Fahrenheit Ke Kelvin Adalah ", fahrenheitKelvin)
+tanggalLahir = dt.date(tahun,bulan,tanggal)
+print("\nTanggal Lahir Anda Ialah : ",tanggalLahir)
 
-# Kelvin
-kelvin = celcius + 273.15
-kelvinFahrenheit = ((kelvin - 273.15) * 9/5) + 32
-print("\nSuhu Dalam kelvin Adalah ", kelvin)
-print("Suhu Dari Kelvin Ke Fahrenheit Adalah ", kelvinFahrenheit)
-
-
-
+hariIni = dt.date.today()
+print (f"\nHari ini tanggal : {hariIni}")
+print (f"Hari ini adalah hari : {hariIni:%A}\n")
+umurHari = hariIni - tanggalLahir
+umurTahun = umurHari.days // 365
+print (f"Umur Hari anda adalah : {umurHari}")
+print (f"Umur Tahun anda adalah : {umurTahun} Tahun\n")
