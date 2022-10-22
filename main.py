@@ -1,20 +1,27 @@
-# Date And Time (latihan)
+print(10*"=")
+print("Latihan Perulangan Sederhana")
+print(10*"=")
 
-import datetime as dt
-from re import A
+total = int(input("Masukan Jumlah Total Bintang = "))
+print (f"Total Segitiga Adalah = {total}\n")
 
-print("\nMasukan Tanggal, \nBulan, dan tahun lahir Anda\n")
-tanggal = int(input("Tanggal Lahir Anda \t:"))
-bulan   = int(input("Bulan Lahir Anda \t:"))
-tahun   = int(input("Tahun Lahir Anda \t:"))
 
-tanggalLahir = dt.date(tahun,bulan,tanggal)
-print("\nTanggal Lahir Anda Ialah : ",tanggalLahir)
+count = 1
+space = int(total / 2)
 
-hariIni = dt.date.today()
-print (f"\nHari ini tanggal : {hariIni}")
-print (f"Hari ini adalah hari : {hariIni:%A}\n")
-umurHari = hariIni - tanggalLahir
-umurTahun = umurHari.days // 365
-print (f"Umur Hari anda adalah : {umurHari}")
-print (f"Umur Tahun anda adalah : {umurTahun} Tahun\n")
+while True:
+    if (count % 2):
+        print (" " *space,"*" *count)
+        space -= 1
+        count += 1
+    
+    else:
+        count += 1
+        continue
+
+    
+
+    if count > total:
+        break
+print("\nProgram Selesai")
+
