@@ -1,61 +1,85 @@
-# Latihan Dictionary (Data Mahasiswa)
-import datetime 
+# Latihan Fungsi
+
+# Import Statement
 import os
-import string
-import random
 
-# FromKeys
+# Header
+def header():
+    '''Header'''
+    os.system("cls")
+    print("\n\n")
+    print("="*50)
+    print(f"{'Program Menghitung':^50}")
+    print(f"{'Keliling Dan Luas Persegi Panjang':^50}")
+    print("="*50)
 
-# Template Dict Mahasiswa
-mahasiswaTemp = {
-    'nama':'nama',
-    'nim':'00000000',
-    'sks':0,
-    'lahir':datetime.datetime(1111,1,11),    
-}
-# Template Dict Mahasiswa End
+# Input Dari User
+def inputUser():
+    '''Input Dari User'''
+    lebar = int(input("Masukan Lebar Persegi Panjang\t: "))
+    panjang = int(input("Masukan Panjang Persegi Panjang\t: "))
 
-dataMahasiswa = {}
+    return lebar,panjang
+
+# Hitung Luas Dan Keliling Persegi Panjang
+def hitungLuas(lebar,panjang):
+    '''Hitung Luas Persegi Panjang'''
+    return lebar * panjang
+
+def hitungKeliling(lebar,panjang):
+    '''Hitung Keliling Persegi Panjang'''
+    return 2 * (panjang + lebar)
+
+# Tampilkan Hasil
+def hasilLuas():
+    '''Hasil luas dan keliling Persegi Panjang'''
+    print("="*50)
+    print (f"Hasil Dari LUAS = {LUAS}")
+
+def hasilKeliling():
+    '''Hasil luas dan keliling Persegi Panjang'''
+    print("="*50)
+    print (f"Hasil Dari KELILING = {KELILING}")
+
+def hasilLuasDanKeliling():
+    print("="*50)
+    print (f"Hasil Dari LUAS\t\t= {LUAS}")
+    print (f"Hasil Dari KELILING\t= {KELILING}")
 
 while True:
+    # Panggil Function Header
+    header()
 
-    # CLear Screen Pada Terminal
-    os.system("cls")
-    # Clear Screen End
+    # Input User
+    LEBAR,PANJANG = inputUser()
+    # Input User End
 
-    print(f"{'Selamat Datang':^20}")
-    print(f"{'Data Mahasiswa':^20}")
-    print("="*20)
+    print("="*50)
+    luasAtauKeliling = input("Pilih 1 untuk Luas\nPilih 2 untuk Keliling\nPilih 3 untuk Luas Dan Keliling : ")
+    # Hitung Luas
+    if luasAtauKeliling ==  '1':
+        LUAS = hitungLuas(LEBAR,PANJANG)
+        hasilLuas()
 
-    mahasiswa = dict.fromkeys(mahasiswaTemp.keys())
-    # print(mahasiswa)
-    mahasiswa['nama'] = input("Nama Mahasiswa : ")
-    mahasiswa['nim'] = input("Nim Mahasiswa : ")
-    mahasiswa['sks'] = int(input("SKS Lulus Mahasiswa : "))
-    TAHUN = int(input("Tahun Lahir (YYYY) : "))
-    BULAN = int(input("Bulan Lahir (1-12) : "))
-    TANGGAL = int(input("Tanggal Lahir (1-31) : "))
-    mahasiswa ['lahir'] = datetime.datetime(TAHUN,BULAN,TANGGAL) 
+    # Hitung Keliling
+    elif luasAtauKeliling == '2':
+        KELILING = hitungKeliling(LEBAR,PANJANG)
+        hasilKeliling()
 
-    KEY = ''.join((random.choice(string.ascii_uppercase)for  i in range (6)))
-    dataMahasiswa.update({KEY:mahasiswa})
+    # Hitung Luas Dan Keliling
+    else:
+        # Panggil Function hitungLuas dan hitungKeliling
+        LUAS = hitungLuas(LEBAR,PANJANG)
+        KELILING = hitungKeliling(LEBAR,PANJANG)
 
-    print(f"\n{'KEY':<6} {'NAMA' :<17} {'NIM' :<10} {'SKS' :^10} {'LAHIR' :^10} ")
-    print("="*60) 
-    for mahasiswa in dataMahasiswa:
-        KEY = mahasiswa
+        # Panggil Keliling
+        hasilLuasDanKeliling()
 
-        NAMA = dataMahasiswa[KEY]['nama']
-        NIM = dataMahasiswa[KEY]['nim']
-        SKS = dataMahasiswa[KEY]['sks']
-        LAHIR = dataMahasiswa[KEY]['lahir'].strftime("%x")
-
-        print(f"{KEY:<6} {NAMA :<17} {NIM :<10} {SKS :^10} {LAHIR :^10} ") 
-
-    print("\n")
-    done = input("Apakah Ingin Melanjutkan (y/n) : ")
-
-    if done == 'n':
+    print("="*50)
+    done = input("Apakah Ingin Lanjut (y/n) : ")
+    if done == 'n' :
+        break
+    if done == 'N' :
         break
 
-print("PROGRAM SELESAI")
+print("\n\nPROGRAN SELESAI")
