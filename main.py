@@ -1,27 +1,29 @@
-print(10*"=")
-print("Latihan Perulangan Sederhana")
-print(10*"=")
+# Latihan List (Program List Buuku)
 
-total = int(input("Masukan Jumlah Total Bintang = "))
-print (f"Total Segitiga Adalah = {total}\n")
+from operator import index
 
 
-count = 1
-space = int(total / 2)
-
+listBuku = []
 while True:
-    if (count % 2):
-        print (" " *space,"*" *count)
-        space -= 1
-        count += 1
-    
-    else:
-        count += 1
-        continue
+    print("\nProgram List Data Buku")
+    print("="*50)
 
-    
+    judul = input("\n\nMasukan Judul Buku\t: ")
+    penulis = input("Masukan Penulis Buku\t: ")
 
-    if count > total:
-        break
-print("\nProgram Selesai")
+    dataBuku = [judul,penulis]
+    listBuku.append(dataBuku)
 
+    print("\n\nList Data Buku")
+    print("="*50)
+
+    for index,buku in enumerate(listBuku):
+        print(f"{index+1} | Judul = {buku[0]} | Penulis = {buku[1]}")
+
+    print("\n\n","="*50)
+    done = input("Apakah Anda Ingin Melanjutkan (y/n) : ")
+
+    if done == "n":
+        break;
+
+print("\n\nPROGRAM SELESAI")
