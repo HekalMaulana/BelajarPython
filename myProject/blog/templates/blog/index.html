@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container text-center mt-5 border shadow">
+
+    <h1 class="text-danger">{{heading}}</h1>
+
+    <ul class="nav">
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:index' %}">All Post</a>
+    </li>
+
+    {% for dataCategory in categoriesPost %}
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog:category' categoryInput=dataCategory.category %}">{{dataCategory.category}}</a>
+        </li>
+
+    {% endfor %}
+
+    </ul>
+
+    
+
+        
+        
+        {% for post in posts %}
+            <a href="{% url 'blog:detail' slugInput=post.slug %}"><h1 class="mt-5">Title = {{post.title}}</h1></a>
+            <h3>Date Post = {{post.datePost}}</h3>
+            <h4> Category = {{post.category}}</h4>
+            <p class ="mt-4" style = "font-size : 20px;">{{post.body | truncatechars:20}}</p>
+        {% endfor %}
+
+</div>
+
+{% endblock content %}
+
+

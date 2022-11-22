@@ -1,0 +1,34 @@
+{% load static %}
+
+{% block heading %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    {% include "blog/snippets/bootstrap/styles.html" %}
+</head>
+<body>
+  
+{% endblock heading %}
+
+    
+{% block navbar %}
+
+  {% include "snippets/navbar.html" %}
+
+{% endblock navbar %}
+    
+
+    {% block content %}
+    
+    {% endblock content %}
+
+    
+{% block script %}
+  {% include "blog/snippets/bootstrap/script.html" %}
+{% endblock script %}
+  </body>
+</html>

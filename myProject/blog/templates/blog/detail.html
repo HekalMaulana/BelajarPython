@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    
+    <div class="container text-center mt-5 border shadow">
+
+        <h1 class="text-danger">{{heading}}</h1>
+
+        <ul class="nav">
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog:index' %}">All Post</a>
+            </li>
+            
+            {% for dataCategory in categoriesPost %}
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog:category' categoryInput=dataCategory.category %}">{{dataCategory.category}}</a>
+                </li>
+            
+            {% endfor %}
+            
+            </ul>
+        
+        
+            <h1 class="mt-5">Title = {{posts.title}}</h1>
+            <h3>Date Post = {{posts.datePost}}</h3>
+            <h4> Category = {{posts.category}}</h4>
+            <p class="mt-3" style="font-size : 18px;">{{posts.body}}</p>
+        
+
+    </div>
+
+{% endblock content %}
+
+
