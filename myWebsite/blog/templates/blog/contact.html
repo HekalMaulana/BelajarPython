@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+        <h1 class="text-center" style="margin-top: 100px;" >{{subtitle}}</h1>
+        <form method = "POST">
+            {% csrf_token %}
+            <table>
+                <div class="mb-3">
+                    {{form.Nama_Lengkap.label_tag}}
+                    {{form.Nama_Lengkap}}
+                </div>
+    
+                <div class="mb-3 form-check">
+                    {{form.Jenis_Kelamin.label_tag}}
+                    {% for component in form.Jenis_Kelamin %}
+                        <div class="form-check">
+                            {{component.tag}}
+                            <label for="{{component.id_for_label}} class="form-check-label">
+                                {{component.choice_label}}
+                            </label>
+                        </div>
+                    {% endfor %}
+                </div>
+    
+                <div class="mb-3">
+                    {{form.Tanggal_Lahir.label_tag}}
+                    <div class="form-row mt-2">
+                        {{form.Tanggal_Lahir}}
+                    </div>
+                </div>
+    
+                <div class="mb-3">
+                    {{form.email.label_tag}}
+                    {{form.email}}          
+                </div>
+    
+                <div class="mb-3">
+                    {{form.alamat.label_tag}}
+                    {{form.alamat}}          
+                </div>
+                
+                <div class="mb-5">
+                    <div class="form-check">
+                        {{form.agree}}          
+                        <label for="{{form.agree.id_for_label}}" class="form-check-label">
+                            {{form.agree.label}}
+                        </label>
+                    </div>
+                </div>
+            </table>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+
+{% endblock content %}
